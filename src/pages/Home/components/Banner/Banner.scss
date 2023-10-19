@@ -1,0 +1,23 @@
+.my-banner {
+  min-height: 100vh;
+  margin-left: 3%;
+  margin-right: 3%;
+  border-radius: 3rem;
+  overflow: hidden;
+
+  .bg-banner {
+    height: 100vh;
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+
+  .intro {
+    margin-left: 10%;
+
+    .my-title {
+      font-size: 400% !important;
+    }
+  }
+}

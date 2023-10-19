@@ -1,0 +1,38 @@
+.my-search {
+  border-radius: 10rem !important;
+  overflow: hidden;
+  border: 1px solid var(--border-lighter);
+  background-color: var(--input);
+
+  input,
+  button,
+  span {
+    border: none;
+  }
+
+  input {
+    background-color: transparent;
+    font-size: var(--size-normal);
+
+    &::placeholder {
+      color: var(--primary);
+    }
+  }
+
+  span {
+    background-color: transparent !important;
+    color: var(--primary);
+    font-size: var(--size-normal);
+  }
+
+  button {
+    min-width: 3rem;
+    position: relative;
+    left: 0.1rem;
+  }
+
+  button:hover {background-color: var(--primary)}
+
+  button:hover span {color: #fff}
+
+}
