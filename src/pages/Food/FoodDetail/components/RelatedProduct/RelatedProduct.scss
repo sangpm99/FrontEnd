@@ -1,0 +1,41 @@
+.related-product {
+
+  .ant-select-selector {
+    background-color: transparent !important;
+    border: none !important;
+    color: var(--white) !important;
+
+    .ant-select-open {
+      color: var(--white) !important;
+    }
+  }
+
+  .product-grid {
+    margin: 2rem -1rem 0;
+
+    .product-box {
+      padding: 0 1rem 2rem 1rem;
+
+      img {
+        width: 100%;
+        cursor: pointer;
+      }
+
+      .product-tag {
+        height: 0;
+        transition: all 0.25s;
+        overflow: hidden;
+      }
+
+      &:hover .product-tag{
+        height: 3rem;
+      }
+    }
+
+
+    .product-box:hover img {
+      transition: opacity 0.5s;
+      opacity: 0.8;
+    }
+  }
+}

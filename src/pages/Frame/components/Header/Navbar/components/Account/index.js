@@ -97,7 +97,7 @@ function Account({props}) {
                 placement="bottomRight"
                 arrow
             >
-                <PiUserCircleLight className="text-3xl color-primary"/>
+                <PiUserCircleLight className="text-3xl color-primary cursor-pointer"/>
             </Dropdown>
         </>
     );

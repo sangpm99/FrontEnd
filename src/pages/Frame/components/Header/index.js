@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, useRef} from 'react';
 import {Link} from "react-router-dom";
 import './Header.scss';
 import Navbar from "./Navbar";
@@ -7,14 +7,15 @@ function Header({props}) {
     const initialNavbarHeight = '10rem'; // tham chiếu GlobalStyle.css : --header-width: 10rem;
     const scrollNavbarHeight = '7rem';
 
+    const navbarRef = useRef(null);
+
     const [navbarHeight, setNavbarHeight] = useState(initialNavbarHeight);
     const [paddingNavbar, setPaddingNavbar] = useState('4rem');
 
     useEffect(() => {
-        const navbar = document.querySelector(".my-header");
-        if (navbar) {
-            navbar.style.height = navbarHeight;
-            navbar.style.paddingTop = paddingNavbar;
+        if (navbarRef.current) {
+            navbarRef.current.style.height = navbarHeight;
+            navbarRef.current.style.paddingTop = paddingNavbar;
         }
     }, [navbarHeight, paddingNavbar]);
 
@@ -28,7 +29,7 @@ function Header({props}) {
         }
     });
     return (
-        <div className="my-header flex flex-wrap items-center py-5 p-body">
+        <div ref={navbarRef} className="my-header flex flex-wrap items-center py-5 p-body">
             <div className="w-5/12">
                 <ul className="flex flex-wrap">
                     <li className="me-5">

@@ -1,11 +1,13 @@
 import React from 'react';
-import FrameHeader from "../Frame/FrameHeader";
+import FrameDefault from "../Frame/FrameDefault";
+import Bread from "../Frame/Breadcrumb";
 
 function Contact() {
     return (
         <div>
-            <FrameHeader />
-            Liên hệ
+            <FrameDefault>
+                <Bread>Liên Hệ</Bread>
+            </FrameDefault>
         </div>
     );
 }

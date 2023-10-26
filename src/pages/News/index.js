@@ -1,11 +1,13 @@
 import React from 'react';
-import FrameHeader from "../Frame/FrameHeader";
+import FrameDefault from "../Frame/FrameDefault";
+import Bread from "../Frame/Breadcrumb";
 
 function News() {
     return (
         <div>
-            <FrameHeader />
-            Tin tức
+            <FrameDefault>
+                <Bread>Tin Tức</Bread>
+            </FrameDefault>
         </div>
     );
 }

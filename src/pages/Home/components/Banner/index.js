@@ -17,6 +17,7 @@ function Banner() {
                     <Button
                         className="bg-primary text-white secondary-hover border-0 py-2 px-5 mt-5 round color-white-hover font-bold"
                         size="large"
+                        href="/food"
                     >
                         ĐẶT HÀNG NGAY
                     </Button>

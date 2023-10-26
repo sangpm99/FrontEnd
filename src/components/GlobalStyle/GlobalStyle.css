@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Racing+Sans+One&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Racing+Sans+One&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -85,6 +85,10 @@
     background-color: var(--sub-primary) !important;
 }
 
+.bg-secondary {
+    background-color: var(--secondary) !important;
+}
+
 .secondary-hover:hover {
     transition: all 0.25s;
     background-color: var(--secondary) !important;
@@ -97,6 +101,10 @@
     background-size: cover;
 }
 
+.bg-footer {
+    background-color: #212427;
+}
+
 /* Size */
 .gb-min-h-full {
     min-height: 100vh;
@@ -105,8 +113,8 @@
     margin-top: var(--header-width);
 }
 .p-body {
-    margin-left: 3%;
-    margin-right: 3%;
+    padding-left: 10%;
+    padding-right: 10%;
 }
 .gb-border-bot-2 {
     border-bottom: 2px solid var(--primary);
@@ -116,9 +124,17 @@
 .heading-style {
     font-family: var(--style-sharp) !important;
 }
+.dancing-style {
+    font-family: "Times New Roman", serif !important;
+    font-weight: 100;
+}
 
 .round {
     border-radius: 3rem !important;
+}
+
+.rounded-none {
+    border-radius: 0 !important;
 }
 
 /* Opacity */
@@ -138,6 +154,13 @@
     background-color: var(--primary) !important;
     color: var(--white) !important;
     border-color: var(--border-color-antd) !important;
+}
+
+.btn-white-outline,
+.btn-white-outline:hover {
+    background-color: var(--white) !important;
+    color: var(--text) !important;
+    border-color: var(--white) !important;
 }
 
 .gb-tag {

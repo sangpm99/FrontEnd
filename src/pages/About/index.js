@@ -1,11 +1,13 @@
 import React from 'react';
-import FrameHeader from "../Frame/FrameHeader";
+import FrameDefault from "../Frame/FrameDefault";
+import Bread from "../Frame/Breadcrumb";
 
 function About() {
     return (
         <div>
-            <FrameHeader />
-            Giới thiệu
+            <FrameDefault>
+                <Bread>Giới Thiệu</Bread>
+            </FrameDefault>
         </div>
     );
 }

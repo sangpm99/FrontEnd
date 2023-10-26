@@ -1,0 +1,25 @@
+.my-table {
+  border: 1px solid var(--primary);
+  border-radius: 10px;
+  overflow: hidden;
+  counter-reset: stt;
+
+  thead {
+    background-color: var(--primary);
+
+    th{
+      background-color: var(--primary) !important;
+      color: var(--white) !important;
+      text-align: center !important;
+    }
+  }
+
+  td {
+    text-align: center;
+    &:first-child::before {
+      counter-increment: stt;
+      content: counter(stt);
+
+    }
+  }
+}

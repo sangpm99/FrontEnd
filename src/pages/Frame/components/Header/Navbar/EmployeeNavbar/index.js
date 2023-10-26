@@ -1,7 +1,7 @@
 import SearchBox from "../components/SearchBox";
 import React from 'react';
 import Account from "../components/Account";
-import Cart from "../components/Cart";
+import CartIcon from "../components/CartIcon";
 import {Route, Routes} from "react-router-dom";
 import Login from "../../../../../Login";
 
@@ -16,7 +16,7 @@ function EmployeeNavbar() {
                     <Account props="employee"/>
                 </li>
                 <li className="mx-2">
-                    <Cart />
+                    <CartIcon />
                 </li>
             </ul>
             <Routes>

@@ -1,9 +1,9 @@
 import React from 'react';
-import FrameHeader from "./FrameHeader";
+import FrameDefault from "./FrameDefault";
 
 function FrameLogin({children}) {
     return (
-        <FrameHeader>
+        <FrameDefault>
             <div className="w-full flex flex-wrap bg-login">
                 <div className="w-1/2"></div>
                 <div className="w-1/2">
@@ -14,7 +14,7 @@ function FrameLogin({children}) {
                     </div>
                 </div>
             </div>
-        </FrameHeader>
+        </FrameDefault>
     );
 }
 

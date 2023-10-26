@@ -31,7 +31,7 @@ function Products({props}) {
     }
     return (
         <div className="products">
-            <div className="w-full bg-sub-primary p-2">
+            <div className="filter w-full bg-sub-primary p-2">
                 <div className="flex justify-between items-center">
                     <div className="w-2/12">
                         <Select
@@ -48,18 +48,18 @@ function Products({props}) {
                     <div className="w-2/12 flex justify-end">
                         <ul className="flex">
                             <li
-                                className={grid ? "p-3 bg-primary text-white" : "p-3 bg-white"} >
+                                className={grid ? "p-3 bg-primary text-white" : "p-3 bg-white"}>
                                 <Link
                                     to=""
                                     onClick={() => handeGrid("grid")}
-                                ><BsFillGrid3X3GapFill /></Link>
+                                ><BsFillGrid3X3GapFill/></Link>
                             </li>
                             <li
-                                className={grid ? "p-3 bg-white" : "p-3 bg-primary text-white"} >
+                                className={grid ? "p-3 bg-white" : "p-3 bg-primary text-white"}>
                                 <Link
                                     to=""
                                     onClick={() => handeGrid("list")}
-                                ><FaThList /></Link>
+                                ><FaThList/></Link>
                             </li>
                         </ul>
                     </div>
@@ -69,6 +69,7 @@ function Products({props}) {
             <div className="w-full">
                 <Row className="product-grid">
                     {
+                        props &&
                         props.map((product, index) => (
                             <Col key={index} className="product-box" span={6}>
                                 <div className="rounded-3xl overflow-hidden relative">
@@ -81,13 +82,16 @@ function Products({props}) {
 
                                     <div className="product-tag w-full absolute bottom-0">
                                         <div className="flex justify-center">
-                                            <div className="bg-primary secondary-hover cursor-pointer p-2 text-white mx-2 rounded-full">
+                                            <div
+                                                className="bg-primary secondary-hover cursor-pointer p-2 text-white mx-2 rounded-full">
                                                 <AiOutlineShoppingCart className="text-lg"/>
                                             </div>
-                                            <div className="bg-primary secondary-hover cursor-pointer p-2 text-white mx-2 rounded-full">
+                                            <div
+                                                className="bg-primary secondary-hover cursor-pointer p-2 text-white mx-2 rounded-full">
                                                 <AiOutlineSearch className="text-lg"/>
                                             </div>
-                                            <div className="bg-primary secondary-hover cursor-pointer p-2 text-white mx-2 rounded-full">
+                                            <div
+                                                className="bg-primary secondary-hover cursor-pointer p-2 text-white mx-2 rounded-full">
                                                 <AiOutlineHeart className="text-lg"/>
                                             </div>
                                         </div>
@@ -110,13 +114,13 @@ function Products({props}) {
                                             </span>
                                         }
                                         <span
-                                            className = {
+                                            className={
                                                 product["discount"] !== 0 ? "sub-text line-through" : "font-bold"}
                                         >
                                             {product["price"].toLocaleString()} VND
                                         </span>
                                     </p>
-                                    <Rate disabled defaultValue={5} />
+                                    <Rate disabled defaultValue={5}/>
                                 </div>
                             </Col>
                         ))
