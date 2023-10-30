@@ -2,8 +2,8 @@ import React, {useContext, useEffect, useState} from 'react';
 import {Button, Form, Input, message, Select} from "antd";
 import TextArea from "antd/es/input/TextArea";
 import {Context} from "../../../../CartContextProvider";
-import AddNewOrder from "../../Data/AddNewOrder";
-import AddNewOrderDetail from "../../Data/AddNewOrderDetail";
+import AddNewOrder from "../../../../Data/AddNewOrder";
+import AddNewOrderDetail from "../../../../Data/AddNewOrderDetail";
 import Address from "./components/Address";
 
 function UserInfo({done}) {
@@ -19,6 +19,7 @@ function UserInfo({done}) {
     const [paymentId, setPaymentId] = useState(1);
 
     const [address, setAddress] = useState("");
+    const [listAddress, setListAddress] = useState([]);
 
     const [messageApi, contextHolder] = message.useMessage();
 
@@ -40,45 +41,57 @@ function UserInfo({done}) {
 
     }, [cart]);
 
+    useEffect(() => {
+        let newStr = listAddress.join("|");
+        console.log(newStr);
+        setAddress(newStr);
+    }, [listAddress]);
+
     const onFinish = async (values) => {
-        messageApi.open({
-            type: 'success',
-            content: 'Đặt hàng thành công!',
-        });
-        setCart([]);
-        done.setDone(true);
-        console.log('Success:', values);
+        if(paymentId === 1) {
+            messageApi.open({
+                type: 'success',
+                content: 'Đặt hàng thành công!',
+            });
+            setCart([]);
+            done.setDone(true);
+            console.log('Success:', values);
 
-        try {
-            const result = await AddNewOrder(
-                fullName,
-                email,
-                phone,
-                address,
-                paymentId,
-                originalPrice,
-                actualPrice,
-                note
-            );
-            console.log("Thêm order thành công");
+            try {
+                const result = await AddNewOrder(
+                    fullName,
+                    email,
+                    phone,
+                    address,
+                    paymentId,
+                    originalPrice,
+                    actualPrice,
+                    note
+                );
+                console.log("Thêm order thành công");
 
-            if (result !== 0) {
-                const orderDetailPromises = cart.map(async (item) => {
-                    const priceTotal = (item.price - (item.price * (item.discount / 100))) * item.quantity;
-                    return AddNewOrderDetail(item.productId, priceTotal, item.quantity, result);
-                });
+                if (result !== 0) {
+                    const orderDetailPromises = cart.map(async (item) => {
+                        const priceTotal = (item.price - (item.price * (item.discount / 100))) * item.quantity;
+                        return AddNewOrderDetail(item.productId, priceTotal, item.quantity, result);
+                    });
 
-                await Promise.all(orderDetailPromises);
-                console.log("Thêm order detail thành công");
+                    await Promise.all(orderDetailPromises);
+                    console.log("Thêm order detail thành công");
+                }
+            } catch (error) {
+                console.error('Lỗi gửi thêm order: ', error);
             }
-        } catch (error) {
-            console.error('Lỗi gửi thêm order: ', error);
+        }
+        else if(paymentId === 2) {
+
         }
     };
 
     const onFinishFailed = (errorInfo) => {
         console.log('Failed:', errorInfo);
     };
+
     return (
         <>
             {contextHolder}
@@ -145,7 +158,7 @@ function UserInfo({done}) {
                         />
                     </Form.Item>
 
-                    <Address address={address} setAddress={setAddress} />
+                    <Address listAddress={listAddress} setListAddress={setListAddress} />
 
                     <Form.Item
                         label="Ghi chú"
@@ -188,7 +201,7 @@ function UserInfo({done}) {
                     <Form.Item>
                         <p>
                             Nhấn "Đặt hàng" đồng nghĩa với việc bạn đồng ý tuân theo
-                            <span className="text-blue-500">Điều khoản Polyfood</span>,
+                            <span className="text-blue-500"> Điều khoản Polyfood</span>,
                             vui lòng kiểm tra kỹ khi đặt hàng, thao tác này không thể hoàn tác
                         </p>
                     </Form.Item>

@@ -11,6 +11,7 @@ import AddAccount from "../pages/Register/AddAccount";
 import FoodDetail from "../pages/Food/FoodDetail";
 import Cart from "../pages/Cart";
 import Purchase from "../pages/Purchase";
+import VnPay from "../pages/VnPay";
 
 const publicRoutes = [
     {path: '/*', component: <Home />},
@@ -25,7 +26,8 @@ const publicRoutes = [
     {path: '/register/*', component: <Register />},
     {path: '/addaccount/*', component: <AddAccount />},
     {path: '/changepassword/*', component: <ChangePassword />},
-    {path: 'forgotpassword/*', component: <ForgotPassword />}
+    {path: 'forgotpassword/*', component: <ForgotPassword />},
+    {path: 'vnpay/*', component: <VnPay />}
 ]
 
 const privateRoutes = [
