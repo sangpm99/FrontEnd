@@ -1,9 +1,12 @@
-import React from 'react';
+import axios from 'axios';
 
-function GetUrlPayment(props) {
-    return (
-        <div></div>
-    );
+const GetUrlPayment = async (amount) => {
+    try {
+        const response = await axios.get(`http://localhost:8080/payment/geturlpayment?amount=${amount}`)
+        return response.data;
+    } catch (error) {
+    throw error;
 }
+};
 
 export default GetUrlPayment;

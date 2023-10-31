@@ -1,13 +1,17 @@
 import React, {useContext, useEffect, useState} from 'react';
-import {Button, Form, Input, message, Select} from "antd";
+import {Button, Form, Input, Select} from "antd";
 import TextArea from "antd/es/input/TextArea";
-import {Context} from "../../../../CartContextProvider";
+import {CartContext} from "../../../../ContextProvider";
+import Address from "./components/Address";
+import getUrlPayment from "../../../../Data/GetUrlPayment";
+import {useNavigate} from 'react-router-dom';
 import AddNewOrder from "../../../../Data/AddNewOrder";
 import AddNewOrderDetail from "../../../../Data/AddNewOrderDetail";
-import Address from "./components/Address";
 
-function UserInfo({done}) {
-    const {cart, setCart} = useContext(Context);
+function UserInfo() {
+    const navigate = useNavigate();
+
+    const {cart, setCart} = useContext(CartContext);
 
     const [fullName, setFullName] = useState("");
     const [email, setEmail] = useState("");
@@ -20,8 +24,6 @@ function UserInfo({done}) {
 
     const [address, setAddress] = useState("");
     const [listAddress, setListAddress] = useState([]);
-
-    const [messageApi, contextHolder] = message.useMessage();
 
     useEffect(() => {
         let sum = 0;
@@ -47,16 +49,8 @@ function UserInfo({done}) {
         setAddress(newStr);
     }, [listAddress]);
 
-    const onFinish = async (values) => {
+    const onFinish = async () => {
         if(paymentId === 1) {
-            messageApi.open({
-                type: 'success',
-                content: 'Đặt hàng thành công!',
-            });
-            setCart([]);
-            done.setDone(true);
-            console.log('Success:', values);
-
             try {
                 const result = await AddNewOrder(
                     fullName,
@@ -68,23 +62,28 @@ function UserInfo({done}) {
                     actualPrice,
                     note
                 );
-                console.log("Thêm order thành công");
 
+                // result returns orderId
                 if (result !== 0) {
                     const orderDetailPromises = cart.map(async (item) => {
                         const priceTotal = (item.price - (item.price * (item.discount / 100))) * item.quantity;
                         return AddNewOrderDetail(item.productId, priceTotal, item.quantity, result);
                     });
-
                     await Promise.all(orderDetailPromises);
-                    console.log("Thêm order detail thành công");
+                    setCart([]);
+                    // setUserInfo({});
+                    // setIsSuccess(false);
+                    navigate('/paymentsuccess');
                 }
             } catch (error) {
                 console.error('Lỗi gửi thêm order: ', error);
             }
         }
-        else if(paymentId === 2) {
-
+        else if (paymentId === 2) {
+            const result = await getUrlPayment(actualPrice);
+            if(result.length !== 0) {
+                window.location.href = result;
+            }
         }
     };
 
@@ -94,7 +93,6 @@ function UserInfo({done}) {
 
     return (
         <>
-            {contextHolder}
             <p className="text-xl mb-5">Thông tin thanh toán</p>
             <div className="border p-5 mb-10">
                 <Form

@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import FrameDefault from "../Frame/FrameDefault";
 import SideBar from "./components/SideBar";
 import Products from "./components/Products";
-import GetAllProduct from "./Data/GetAllProduct";
+import GetAllProduct from "../../Data/GetAllProduct";
 import Bread from "../Frame/Breadcrumb";
 
 function Food() {

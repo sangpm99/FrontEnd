@@ -2,10 +2,10 @@ import React, {useContext, useEffect, useState} from 'react';
 import {BsHandbag} from "react-icons/bs";
 import {Link} from "react-router-dom";
 import { Badge } from 'antd';
-import {Context} from "../../../../../../../CartContextProvider";
+import {CartContext} from "../../../../../../../ContextProvider";
 
 function CartIcon() {
-    const {cart} = useContext(Context);
+    const {cart} = useContext(CartContext);
     const [count, setCount] = useState(0);
 
     useEffect(() => {

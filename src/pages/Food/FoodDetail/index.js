@@ -6,14 +6,14 @@ import FrameDefault from "../../Frame/FrameDefault";
 import {Button, Form, Rate, Tag, Image, notification} from "antd";
 import ButtonGroup from "antd/es/button/button-group";
 import {MinusOutlined, PlusOutlined} from "@ant-design/icons";
-import GetAllProduct from "../Data/GetAllProduct";
+import GetAllProduct from "../../../Data/GetAllProduct";
 import GetProductTypeByProductId from "../Data/GetProductTypeByProductId";
 import RelatedProduct from "./components/RelatedProduct";
 import Description from "./components/Description";
-import {Context} from "../../../CartContextProvider";
+import {CartContext} from "../../../ContextProvider";
 
 function FoodDetail() {
-    const {cart, setCart} = useContext(Context);
+    const {cart, setCart} = useContext(CartContext);
     const updatedCart = [...cart];
 
     const { id } = useParams();

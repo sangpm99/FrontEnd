@@ -11,7 +11,9 @@ import AddAccount from "../pages/Register/AddAccount";
 import FoodDetail from "../pages/Food/FoodDetail";
 import Cart from "../pages/Cart";
 import Purchase from "../pages/Purchase";
-import VnPay from "../pages/VnPay";
+import Payment from "../pages/Payment";
+import PaymentSuccess from "../pages/Payment/PaymentSuccess";
+import PaymentFail from "../pages/Payment/PaymentFail";
 
 const publicRoutes = [
     {path: '/*', component: <Home />},
@@ -26,8 +28,10 @@ const publicRoutes = [
     {path: '/register/*', component: <Register />},
     {path: '/addaccount/*', component: <AddAccount />},
     {path: '/changepassword/*', component: <ChangePassword />},
-    {path: 'forgotpassword/*', component: <ForgotPassword />},
-    {path: 'vnpay/*', component: <VnPay />}
+    {path: '/forgotpassword/*', component: <ForgotPassword />},
+    {path: '/payment/*', component: <Payment />},
+    {path: '/paymentsuccess/*', component: <PaymentSuccess />},
+    {path: '/paymentfail/*', component: <PaymentFail />},
 ]
 
 const privateRoutes = [

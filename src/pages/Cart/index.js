@@ -3,15 +3,13 @@ import FrameDefault from "../Frame/FrameDefault";
 import {Link} from "react-router-dom";
 import {MinusOutlined, PlusOutlined} from "@ant-design/icons";
 import ButtonGroup from "antd/es/button/button-group";
-import {Button, Empty, Modal, Result} from 'antd';
+import {Button, Empty, Modal} from 'antd';
 import Bread from "../Frame/Breadcrumb";
-import {Context} from "../../CartContextProvider";
+import {CartContext} from "../../ContextProvider";
 import UserInfo from "./components/UserInfor";
 function Cart() {
-    const {cart, setCart} = useContext(Context);
+    const {cart, setCart} = useContext(CartContext);
     let updatedCart = [...cart];
-
-    const [done, setDone] = useState(false);
 
     const [empty, setEmpty] = useState(true);
 
@@ -62,27 +60,8 @@ function Cart() {
         <div>
             <FrameDefault>
                 <Bread>Giỏ Hàng</Bread>
-                {
-                    empty
-                        ?
-                            done
-                            ?
-                                <Result
-                                    className="color-primary"
-                                    icon={
-                                        <div className="flex justify-center">
-                                            <img width="200px" src={require("../../imgs/food-success.png")} alt="success"/>
-                                        </div>
-                                    }
-                                    title="Đặt hàng thành công!"
-                                    subTitle="Thông tin đơn hàng sẽ được chuyển đến mail của quý khách trong ít phút nữa, cảm ơn vì đã mua hàng !"
-                                    extra={[
-                                        <Button href="/" className="btn-primary">Trang Chủ</Button>,
-                                    ]}
-                                />
-                            :
-                            <Empty className="py-20" description="Chưa có thông tin" />
-                        :
+                { empty ? <Empty className="py-20" description="Chưa có thông tin" /> :
+
                 <div className="cart flex p-body gap-x-20">
                     <div className="w-2/3">
                         <p className="text-xl mb-5">Giỏ hàng</p>
@@ -182,7 +161,7 @@ function Cart() {
                     </div>
 
                     <div className="w-1/3">
-                        <UserInfo done={{done, setDone}}/>
+                        <UserInfo />
                     </div>
                 </div>
                 }
