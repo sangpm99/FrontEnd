@@ -32,10 +32,18 @@
       }
     }
 
-
     .product-box:hover img {
       transition: opacity 0.5s;
       opacity: 0.8;
     }
   }
+}
+
+.ant-modal-close {
+  background-color: var(--primary) !important;
+  color: var(--white) !important;
+}
+
+.ant-form-item-label {
+  text-align: left !important;
 }

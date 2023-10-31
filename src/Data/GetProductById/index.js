@@ -1,5 +1,6 @@
+import {HOST} from '../Constants';
 const GetProductById = (id) => {
-    const apiUrl = "http://localhost:8080/product/getproductbyid";
+    const apiUrl = `${HOST}/product/getproductbyid`;
     const params = new URLSearchParams({ id: id });
     const urlWithParams = `${apiUrl}?${params}`;
     return fetch(urlWithParams)

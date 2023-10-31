@@ -1,13 +1,13 @@
 import React, {useContext, useEffect, useState} from 'react';
 import {useParams} from 'react-router-dom';
-import GetProductById from "../Data/GetProductById";
+import GetProductById from "../../../Data/GetProductById";
 import './FoodDetail.scss';
 import FrameDefault from "../../Frame/FrameDefault";
 import {Button, Form, Rate, Tag, Image, notification} from "antd";
 import ButtonGroup from "antd/es/button/button-group";
 import {MinusOutlined, PlusOutlined} from "@ant-design/icons";
 import GetAllProduct from "../../../Data/GetAllProduct";
-import GetProductTypeByProductId from "../Data/GetProductTypeByProductId";
+import GetProductTypeByProductId from "../../../Data/GetProductTypeByProductId";
 import RelatedProduct from "./components/RelatedProduct";
 import Description from "./components/Description";
 import {CartContext} from "../../../ContextProvider";

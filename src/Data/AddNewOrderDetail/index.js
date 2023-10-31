@@ -1,11 +1,12 @@
 import axios from 'axios';
+import {HOST} from '../Constants';
 
 const AddNewOrderDetail = async (productId,
                                  priceTotal,
                                  quantity,
                                  orderId) => {
     try {
-        const apiUrl = `http://localhost:8080/order/addneworderdetail?orderId=${orderId}`;
+        const apiUrl = `${HOST}/order/addneworderdetail?orderId=${orderId}`;
         const orderDetail = {
             "productId": productId,
             "priceTotal": priceTotal,

@@ -586,6 +586,10 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
+.fixed{
+  position: fixed;
+}
+
 .absolute{
   position: absolute;
 }
@@ -596,6 +600,18 @@ video {
 
 .bottom-0{
   bottom: 0px;
+}
+
+.left-0{
+  left: 0px;
+}
+
+.right-0{
+  right: 0px;
+}
+
+.top-0{
+  top: 0px;
 }
 
 .float-right{
@@ -864,6 +880,11 @@ video {
           padding-inline-end: 0.5rem;
 }
 
+.pe-4{
+  -webkit-padding-end: 1rem;
+          padding-inline-end: 1rem;
+}
+
 .pe-5{
   -webkit-padding-end: 1.25rem;
           padding-inline-end: 1.25rem;
@@ -946,6 +967,11 @@ video {
 .text-white{
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.text-red-500{
+  --tw-text-opacity: 1;
+  color: rgb(239 68 68 / var(--tw-text-opacity));
 }
 
 .line-through{

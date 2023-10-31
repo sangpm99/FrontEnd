@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {Tabs} from "antd";
-import GetProductDetailByProductId from "../../../Data/GetProductDetailByProductId";
+import GetProductDetailByProductId from "../../../../../Data/GetProductDetailByProductId";
 
 function Description({id}) {
     const [productDetail, setProductDetail] = useState([]);

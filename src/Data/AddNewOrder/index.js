@@ -1,4 +1,5 @@
 import axios from 'axios';
+import {HOST} from '../Constants';
 
 const AddNewOrder = async (fullName,
                            email,
@@ -9,7 +10,7 @@ const AddNewOrder = async (fullName,
                            actualPrice,
                            note) => {
     try {
-        const apiUrl = "http://localhost:8080/order/addneworder";
+        const apiUrl = `${HOST}/order/addneworder`;
         const order = {
             "fullName": fullName,
             "email": email,

@@ -1,9 +1,11 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, Suspense} from 'react';
 import FrameDefault from "../Frame/FrameDefault";
-import SideBar from "./components/SideBar";
-import Products from "./components/Products";
 import GetAllProduct from "../../Data/GetAllProduct";
-import Bread from "../Frame/Breadcrumb";
+import LazyVideo from "../../LazyVideo";
+
+const Products = React.lazy(() => import('./components/Products'));
+const Bread = React.lazy(() => import("../Frame/Breadcrumb"));
+const SideBar = React.lazy(() => import("./components/SideBar"));
 
 function Food() {
     const [products, setProducts] = useState([]);
@@ -19,7 +21,8 @@ function Food() {
 
     return (
         <div>
-            <FrameDefault>
+            <Suspense fallback={<LazyVideo />}>
+                <FrameDefault>
                 <Bread>Thực Đơn</Bread>
                 <div className="my-category flex justify-between p-body">
                     <div className="w-2/12">
@@ -29,7 +32,8 @@ function Food() {
                         <Products props={products}/>
                     </div>
                 </div>
-            </FrameDefault>
+                </FrameDefault>
+            </Suspense>
         </div>
     );
 }
