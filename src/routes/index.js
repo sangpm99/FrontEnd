@@ -14,6 +14,7 @@ import Purchase from "../pages/Purchase";
 import Payment from "../pages/Payment";
 import PaymentSuccess from "../pages/Payment/PaymentSuccess";
 import PaymentFail from "../pages/Payment/PaymentFail";
+import Test from "../Test";
 
 const publicRoutes = [
     {path: '/*', component: <Home />},
@@ -32,6 +33,7 @@ const publicRoutes = [
     {path: '/payment/*', component: <Payment />},
     {path: '/paymentsuccess/*', component: <PaymentSuccess />},
     {path: '/paymentfail/*', component: <PaymentFail />},
+    {path: '/test/*', component: <Test />},
 ]
 
 const privateRoutes = [

@@ -586,6 +586,10 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
+.collapse{
+  visibility: collapse;
+}
+
 .fixed{
   position: fixed;
 }
@@ -600,18 +604,6 @@ video {
 
 .bottom-0{
   bottom: 0px;
-}
-
-.left-0{
-  left: 0px;
-}
-
-.right-0{
-  right: 0px;
-}
-
-.top-0{
-  top: 0px;
 }
 
 .float-right{
@@ -685,6 +677,10 @@ video {
   display: flex;
 }
 
+.table{
+  display: table;
+}
+
 .grid{
   display: grid;
 }
@@ -731,6 +727,10 @@ video {
 
 .w-full{
   width: 100%;
+}
+
+.border-collapse{
+  border-collapse: collapse;
 }
 
 .cursor-pointer{
@@ -967,11 +967,6 @@ video {
 .text-white{
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
-}
-
-.text-red-500{
-  --tw-text-opacity: 1;
-  color: rgb(239 68 68 / var(--tw-text-opacity));
 }
 
 .line-through{
